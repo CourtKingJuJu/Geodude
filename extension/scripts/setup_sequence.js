@@ -2,6 +2,25 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+async function waitForNavReady() {
+
+    while (true) {
+
+        const nav = document.querySelector('[class*="panorama-compass_compassContainer__VAYam"]');
+
+        if (nav) {
+            console.log("Game fully loaded");
+            return;
+        }
+        await sleep(2000);
+    }
+}
+
+async function gameLoop() {
+    console.log("Game loop imp")
+}
+
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
     if (message.action === "classic") {
@@ -99,4 +118,11 @@ async function runSequence() {
 
         console.log("Play not found");
     }
+
+    console.log("Waiting for game to fully load...");
+    await waitForNavReady();   
+
+    console.log("Game ready. Starting capture loop...");
+
+    gameLoop();  
 }

@@ -12,9 +12,9 @@
         "16": "assets/geodude-seeklogo.png"
     },
     "content_scripts": [
-    {
-      "matches": ["https://www.geoguessr.com/*"],
-      "js": ["scripts/setup_sequence.js"]
-    }
-  ]
+      {
+        "matches": ["https://www.geoguessr.com/*"],
+        "js": ["scripts/setup_sequence.js"]
+      }
+    ]
   }
