@@ -12,12 +12,21 @@ async function waitForNavReady() {
             console.log("Game fully loaded");
             return;
         }
-        await sleep(2000);
+        await sleep(1500); // Let tiles stablize
     }
 }
 
 async function gameLoop() {
-    console.log("Game loop imp")
+    for (let round = 0; round < 5; round++) {
+
+        console.log("Waiting for round", round + 1, " to be ready");
+
+        await waitForNavReady();
+
+        console.log("Capture screenshot HERE");
+
+        // await waitForNextRound();
+    }
 }
 
 
@@ -118,11 +127,6 @@ async function runSequence() {
 
         console.log("Play not found");
     }
-
-    console.log("Waiting for game to fully load...");
-    await waitForNavReady();   
-
-    console.log("Game ready. Starting capture loop...");
 
     gameLoop();  
 }
