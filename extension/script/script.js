@@ -28,7 +28,7 @@ async function runSequence() {
         return;
     }
 
-    // Wait 2 seconds
+    // All Button
     await sleep(2000);
 
     console.log("Looking for All button...");
@@ -46,6 +46,7 @@ async function runSequence() {
         console.log("All button not found");
     }
 
+    // World Mode 
     await sleep(2000);
 
     console.log("Looking for World mode...");
@@ -61,5 +62,41 @@ async function runSequence() {
     } else {
 
         console.log("World mode not found");
+    }
+
+    // No Move Button
+    await sleep(2000);
+
+    console.log("Looking for No Move...");
+
+    const noMove = [...document.querySelectorAll("button")]
+        .find(btn => btn.textContent.trim().includes("No Move"));
+
+    if (noMove) {
+
+        console.log("No Move found!");
+        noMove.click();
+
+    } else {
+
+        console.log("No Move not found");
+    }
+
+    // Play Button
+    await sleep(2000);
+
+    console.log("Looking for Play...");
+
+    const play = [...document.querySelectorAll("button")]
+        .find(btn => btn.textContent.trim().includes("Play"));
+
+    if (play) {
+
+        console.log("Play found!");
+        play.click();
+
+    } else {
+
+        console.log("Play not found");
     }
 }
