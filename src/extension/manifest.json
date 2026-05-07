@@ -7,6 +7,10 @@
       "default_popup": "main.html",
       "default_icon": "assets/geodude-seeklogo.png"
     },
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ],
     "icons": {
         "16": "assets/geodude-seeklogo.png"
     }
