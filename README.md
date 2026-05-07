@@ -1,2 +1,3 @@
 # Geodude
-Geoguessr ML Bot. 
+
+Geoguessr ML Bot.

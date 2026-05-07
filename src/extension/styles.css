@@ -1,0 +1,41 @@
+.button-container {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 12px;
+  }
+  
+  .button-container button {
+    background: linear-gradient(145deg, #8b8b8b, #6f6f6f); 
+    border: 2px solid #4b4b4b;
+    color: #1f1f1f;
+    font-weight: 600;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+  
+    transition: all 0.15s ease-in-out;
+    box-shadow: 0 3px 0 #3d3d3d;
+  }
+  
+  .button-container button:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(145deg, #9a9a9a, #7a7a7a);
+    box-shadow: 0 5px 0 #3d3d3d;
+  }
+  
+  .button-container button:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #3d3d3d;
+  }
+  
+  .button-container button.primary {
+    background: linear-gradient(145deg, #a97b4f, #7c5a3a); 
+    border: 2px solid #5a3f28;
+    color: #fff3e0;
+  }
+  
+  .button-container button.primary:hover {
+    background: linear-gradient(145deg, #b88959, #8a643f);
+  }
+  

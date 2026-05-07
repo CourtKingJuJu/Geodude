@@ -1,0 +1,13 @@
+{
+    "name": "Geodude",
+    "description": "Geodude is an geoguessr ML bot that predicts locations based off screenshots!",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+      "default_popup": "main.html",
+      "default_icon": "assets/geodude-seeklogo.png"
+    },
+    "icons": {
+        "16": "assets/geodude-seeklogo.png"
+    }
+  }
