@@ -4,9 +4,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
         console.log("Looking for Play now button...");
 
-        const playButton = document.querySelector(
-            'a[href*="/challenge/"][href*="autoJoin=1"]'
-        );
+        const playButton = [...document.querySelectorAll("button")]
+            .find(btn => btn.textContent.trim().includes("Start game"));
 
         if (playButton) {
             console.log("Button found!");
