@@ -10,22 +10,10 @@ async function waitForNavReady() {
 
         if (nav) {
             console.log("Game fully loaded");
+            await sleep(1500); // Let tiles stablize
             return;
         }
-        await sleep(1500); // Let tiles stablize
-    }
-}
-
-async function gameLoop() {
-    for (let round = 0; round < 5; round++) {
-
-        console.log("Waiting for round", round + 1, " to be ready");
-
-        await waitForNavReady();
-
-        console.log("Capture screenshot HERE");
-
-        // await waitForNextRound();
+        await sleep(1500); 
     }
 }
 
@@ -129,4 +117,47 @@ async function runSequence() {
     }
 
     gameLoop();  
+}
+
+async function gameLoop() {
+    for (let round = 0; round < 5; round++) {
+
+        console.log("Waiting for round", round + 1, " to be ready");
+
+        await waitForNavReady();
+        
+        // take screenshot 1
+        for (let i = 0; i < 3; i++){
+            // move
+            console.log("drag mouse")
+            await dragMouse(
+                window.innerWidth / 2,
+                window.innerHeight / 2,
+                600,
+                0
+            );
+            // take screen
+            sleep(2500)
+        }
+
+        return
+
+        // await waitForNextRound();
+    }
+}
+
+async function dragMouse(startX, startY, deltaX, deltaY) {
+
+    return new Promise((resolve) => {
+
+        chrome.runtime.sendMessage({
+            action: "drag",
+            startX,
+            startY,
+            deltaX,
+            deltaY
+        });
+
+        setTimeout(resolve, 1500);
+    });
 }

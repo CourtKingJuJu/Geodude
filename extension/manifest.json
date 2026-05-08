@@ -7,14 +7,23 @@
       "default_popup": "main.html",
       "default_icon": "assets/geodude-seeklogo.png"
     },
-    "permissions": ["activeTab"],
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "debugger",
+        "tabs"
+    ],
     "icons": {
         "16": "assets/geodude-seeklogo.png"
     },
     "content_scripts": [
       {
         "matches": ["https://www.geoguessr.com/*"],
-        "js": ["scripts/setup_sequence.js"]
+        "js": ["scripts/setup_sequence.js"],
+        "run_at": "document_idle"
       }
-    ]
+    ],
+    "background": {
+      "service_worker": "scripts/background.js"
+    }
   }
