@@ -70,4 +70,21 @@ chrome.runtime.onMessage.addListener(async (message, sender) => {
             console.error(err);
         }
     }
+
+
+    if (message.action === "screenshot") {
+        chrome.tabs.captureVisibleTab(null, {format: 'png'}, (dataUrl) => {
+            const filename = `screenshots/screenshot-${Date.now()}.png`;
+
+            chrome.downloads.download({
+                url: dataUrl,
+                filename: filename,
+                saveAs: false
+            });
+
+            console.log("screenshot saved")
+             
+        });
+        return true;
+    }
 });

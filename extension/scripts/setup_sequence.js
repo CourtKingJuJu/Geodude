@@ -126,17 +126,17 @@ async function gameLoop() {
 
         await waitForNavReady();
         
-        // take screenshot 1
+        await Screenshot()
         for (let i = 0; i < 3; i++){
             // move
             console.log("drag mouse")
             await dragMouse(
                 window.innerWidth / 2,
                 window.innerHeight / 2,
-                2100,
+                2400,
                 0
             );
-            // take screen
+            await Screenshot()
             sleep(2500)
         }
 
@@ -156,6 +156,16 @@ async function dragMouse(startX, startY, deltaX, deltaY) {
             startY,
             deltaX,
             deltaY
+        });
+
+        setTimeout(resolve, 1500);
+    });
+}
+
+async function Screenshot(){
+    return new Promise((resolve) => {
+        chrome.runtime.sendMessage({
+            action: "screenshot",
         });
 
         setTimeout(resolve, 1500);

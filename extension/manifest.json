@@ -11,7 +11,8 @@
         "activeTab",
         "scripting",
         "debugger",
-        "tabs"
+        "tabs",
+        "downloads"
     ],
     "icons": {
         "16": "assets/geodude-seeklogo.png"
