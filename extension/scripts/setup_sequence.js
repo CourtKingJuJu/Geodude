@@ -133,7 +133,7 @@ async function gameLoop() {
             await dragMouse(
                 window.innerWidth / 2,
                 window.innerHeight / 2,
-                2400,
+                2550,
                 0
             );
             await Screenshot()

@@ -73,16 +73,19 @@ chrome.runtime.onMessage.addListener(async (message, sender) => {
 
 
     if (message.action === "screenshot") {
-        chrome.tabs.captureVisibleTab(null, {format: 'png'}, (dataUrl) => {
-            const filename = `screenshots/screenshot-${Date.now()}.png`;
+        chrome.tabs.captureVisibleTab(null, {format: 'png'}, async (dataUrl) => {
 
-            chrome.downloads.download({
-                url: dataUrl,
-                filename: filename,
-                saveAs: false
+            await fetch("http://127.0.0.1:5000/upload", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    image: dataUrl
+                })
             });
 
-            console.log("screenshot saved")
+            console.log("screenshot sent")
              
         });
         return true;
