@@ -139,10 +139,10 @@ async function gameLoop() {
             await Screenshot()
             sleep(2500)
         }
+        
+        // Logic to wait for next round. 
+        return // TODO: Replace this return with lgoic to wait for next round (Or even submit guess)
 
-        return
-
-        // await waitForNextRound();
     }
 }
 
