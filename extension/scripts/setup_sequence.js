@@ -31,7 +31,10 @@ async function runSequence() {
     console.log("Looking for Start game button...");
 
     const playButton = [...document.querySelectorAll("button")]
-        .find(btn => btn.textContent.trim().includes("Start game"));
+        .find(btn => 
+            btn.textContent.trim().includes("Start game") ||
+            btn.textContent.trim().includes("Resume")
+        );
 
     if (playButton) {
 
